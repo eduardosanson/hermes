@@ -1,4 +1,4 @@
-package com.br.sanson.aplication.domain;
+package com.br.sanson.domain;
 
 import java.util.Objects;
 import java.util.Optional;

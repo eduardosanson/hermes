@@ -1,4 +1,4 @@
-package com.br.sanson.aplication.interfaces;
+package com.br.sanson.interfaces;
 
 import org.springframework.context.ApplicationEvent;
 

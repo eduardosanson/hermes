@@ -1,0 +1,13 @@
+{
+  "messageConfig":{
+    "data": [
+      {
+        "id":"1",
+        "message":"mensagem de teste",
+        "eventType":"testEvent",
+        "tenant":"Test"
+      }
+    ]
+  }
+
+}

@@ -1,7 +1,7 @@
 package com.br.sanson.api.billingnotify.queue.assembler;
 
 import com.br.sanson.api.billingnotify.queue.to.BillingNotifyTO;
-import com.br.sanson.aplication.domain.*;
+import com.br.sanson.domain.*;
 
 /**
  * Created by pc on 04/02/2017.

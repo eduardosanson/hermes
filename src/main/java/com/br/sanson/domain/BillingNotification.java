@@ -1,4 +1,4 @@
-package com.br.sanson.aplication.domain;
+package com.br.sanson.domain;
 
 import org.springframework.context.ApplicationEvent;
 import org.springframework.util.ObjectUtils;

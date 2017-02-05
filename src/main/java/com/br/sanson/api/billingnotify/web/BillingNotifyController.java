@@ -2,8 +2,8 @@ package com.br.sanson.api.billingnotify.web;
 
 import com.br.sanson.api.billingnotify.queue.assembler.BillingNotifyAssembler;
 import com.br.sanson.api.billingnotify.queue.to.BillingNotifyTO;
-import com.br.sanson.aplication.billingNotify.service.BillingNotifyService;
-import com.br.sanson.aplication.interfaces.NotifyService;
+import com.br.sanson.application.billingNotify.service.BillingNotifyService;
+import com.br.sanson.interfaces.NotifyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

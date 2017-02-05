@@ -1,0 +1,24 @@
+project:
+     name: hermes
+
+server.port: 8080
+spring:
+     data.mongodb:
+              authentication-database: # Authentication database name.
+              database: hermesdb # Database name.
+              host: localhost # Mongo server host. Cannot be set with uri.
+              port: 27017 # Mongo server port. Cannot be set with uri.
+     application:
+         name: ${project.name}
+     cloud.stream.bindings:
+                   billingNotifyInput:
+                          destination: ${project.name}.billingNotify
+                          group: ${project.name}.billingNotifyListener
+billingNotifyInput:
+  queue:
+    dlq:  ${spring.cloud.stream.bindings.billingNotifyInput.destination}.${spring.cloud.stream.bindings.billingNotifyInput.group}.dlq
+
+info.project:
+        name: ${project.name}
+        description: ${project.description}
+        version: ${project.version}
