@@ -18,6 +18,7 @@ public class BillingNotifyAssembler {
         Msisdn msisdn = new Msisdn(Optional.ofNullable(billingNotify.getMsisdn())
                 .orElseThrow(() -> new IllegalArgumentException("Msisdn é obrigatório")));
 
-        return new BillingNotification(tenant,msisdn);
+
+        return new BillingNotification(tenant,msisdn,billingNotify.getParams());
     }
 }

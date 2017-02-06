@@ -1,5 +1,6 @@
 package com.br.sanson.domain.shared;
 
+import java.text.MessageFormat;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -10,12 +11,14 @@ public class Mensagem {
 
     private String mensagem;
 
-    public Mensagem(String mensagem) {
+    public Mensagem(String mensagem,String[] params) {
+        this.mensagem = MessageFormat
+                .format(
+                        Optional
+                                .ofNullable(mensagem)
+                                .orElseThrow(()-> new IllegalArgumentException("Mensagem não pode ser nula")),
+                        params);
 
-        this.mensagem =
-        Optional
-                .ofNullable(mensagem)
-                .orElseThrow(()-> new IllegalArgumentException("Mensagem não pode ser nula"));
     }
 
     public String asString(){

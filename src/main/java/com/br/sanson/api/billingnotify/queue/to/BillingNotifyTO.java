@@ -9,6 +9,8 @@ public class BillingNotifyTO {
 
     private String tenant;
 
+    private String[] params;
+
     public String getMsisdn() {
         return msisdn;
     }
@@ -23,5 +25,13 @@ public class BillingNotifyTO {
 
     public void setTenant(String tenant) {
         this.tenant = tenant;
+    }
+
+    public String[] getParams() {
+        return params;
+    }
+
+    public void setParams(String[] params) {
+        this.params = params;
     }
 }

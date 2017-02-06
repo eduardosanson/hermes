@@ -14,13 +14,16 @@ public class BillingNotification extends ApplicationEvent{
 
     private Msisdn msisdn;
 
-    public BillingNotification(Tenant tenant, Msisdn msisdn) {
+    private String[] params;
+
+    public BillingNotification(Tenant tenant, Msisdn msisdn,String[] params) {
         super(tenant);
         if (ObjectUtils.isEmpty(tenant)||ObjectUtils.isEmpty(msisdn)){
             throw new IllegalArgumentException("Msisdn ou Tenant não podem ser nulos");
         }
         this.tenant = tenant;
         this.msisdn = msisdn;
+        this.params=params;
     }
 
     public Tenant tenant(){
@@ -29,6 +32,10 @@ public class BillingNotification extends ApplicationEvent{
 
     public Msisdn msisdn(){
         return msisdn;
+    }
+
+    public String[] params(){
+        return params;
     }
 
     @Override

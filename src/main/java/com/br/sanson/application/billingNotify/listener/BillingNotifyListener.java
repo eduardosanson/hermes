@@ -6,6 +6,7 @@ import com.br.sanson.domain.shared.Mensagem;
 import com.br.sanson.domain.model.sms.Sms;
 import com.br.sanson.domain.model.messageconfig.MessageConfigRepository;
 import com.br.sanson.domain.model.sms.SmsRepository;
+import com.br.sanson.domain.shared.enums.EventType;
 import com.br.sanson.exception.ResourceNotFoundException;
 import com.br.sanson.infrastructure.clients.SmsSender;
 import org.apache.log4j.Logger;
@@ -30,8 +31,6 @@ public class BillingNotifyListener implements ApplicationListener<BillingNotific
 
     private SmsRepository smsRepository;
 
-    private static final String BILLING_EVENT_TYPE="billingEvent";
-
     private SmsSender smsSender;
 
     @Autowired
@@ -47,9 +46,9 @@ public class BillingNotifyListener implements ApplicationListener<BillingNotific
     public void onApplicationEvent(BillingNotification billingNotification) {
         logger.info("notificacao Recebida " + billingNotification);
 
-        MessageConfig config = repository.findByEventTypeAndTenant(BILLING_EVENT_TYPE,billingNotification.tenant().asString())
-                .orElseThrow(()-> new ResourceNotFoundException(MessageConfig.class,BILLING_EVENT_TYPE,billingNotification.tenant()));
-        Mensagem message= new Mensagem(config.message());
+        MessageConfig config = repository.findByEventTypeAndTenant(EventType.BILLING.getValue(),billingNotification.tenant().asString())
+                .orElseThrow(()-> new ResourceNotFoundException(MessageConfig.class,EventType.BILLING.getValue(),billingNotification.tenant()));
+        Mensagem message= new Mensagem(config.message(),billingNotification.params());
 
         Sms sms = new Sms(message,billingNotification.msisdn());
         smsSender.sendSms(sms.mensagem().asString(),sms.destination().asString());

@@ -27,7 +27,7 @@ public class BillingNotifyQueue {
 
 
     @StreamListener(EventDestination.BILLING_NOTIFY_EVENT)
-    public void billingNotification(@Valid @NotNull BillingNotifyTO billingNotify){
+    public void billingNotification(BillingNotifyTO billingNotify){
 
         service.notify(BillingNotifyAssembler.toNotification(billingNotify));
 
