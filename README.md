@@ -5,11 +5,9 @@ Projeto Responsável por encaminhar mensagens sms de acordo com os eventos ocorr
 ## Getting Started
 
 1- Baixe o projeto
-2- Execute docker do mongoDB na pasta: /docker/mongoDB
-   Ex:
-3- Execute docker do rabbitMQ na pasta: /docker/rabbitMQ
-   Ex:
-4- inicie o mock na pasta: /mock
+2- Execute docker  da infra do sitema  na pasta: /docker/
+   Ex: excute o comando  - docker-compose up -d
+3- inicie o mock na pasta: /mock
  ex: java -jar uaiMockServer-1.1.2.Standalone.jar
 
 ### Prerequisites
@@ -27,6 +25,12 @@ Ex: "path": "/sms/5521985003853",......
 
 Execute o comando mvn install no diretório raiz
 
+teste integrado:
+
+antes de iniciar a aplicação verificar os dados mestres que serão criados
+localizados na pasta resouces/db
+
+
 ## Deployment
 
 Para iniciar o projeto basta executar o comando mvn spring-boot:run
@@ -35,6 +39,7 @@ na pasta /target java -jar hermes<version>.war
 
 ## Built With
 
+* [Docker](https://dockercon.smarteventscloud.com/portal/newreg.ww) - Container par a infra do sistema
 * [Maven](https://maven.apache.org/) - Dependency Management
 
 ## Authors
