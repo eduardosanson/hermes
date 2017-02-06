@@ -1,5 +1,7 @@
-package com.br.sanson.domain;
+package com.br.sanson.domain.model.billingNotify;
 
+import com.br.sanson.domain.shared.Msisdn;
+import com.br.sanson.domain.shared.Tenant;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.util.ObjectUtils;
 

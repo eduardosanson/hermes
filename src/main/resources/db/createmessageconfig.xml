@@ -2,7 +2,7 @@
     <changeSet changeId="ChangeSet-1" author="sanson">
         <script>
             db.messageConfig.insert(
-            { "_id" : "1", "_class" : "com.br.sanson.domain.config.MessageConfig",
+            { "_id" : "1", "_class" : "com.br.sanson.domain.model.messageconfig.MessageConfig",
             "message" : "Mensagem billingEvent do tenant1","eventType" : "billingEvent","tenant" : "tenant1"
             });
         </script>
@@ -10,7 +10,7 @@
     <changeSet changeId="ChangeSet-2" author="sanson">
         <script>
             db.messageConfig.insert(
-            { "_id" : "2", "_class" : "com.br.sanson.domain.config.MessageConfig",
+            { "_id" : "2", "_class" : "com.br.sanson.domain.model.messageconfig.MessageConfig",
             "message" : "Mensagem billingEvent do tenant2","eventType" : "billingEvent","tenant" : "tenant2"
             });
         </script>

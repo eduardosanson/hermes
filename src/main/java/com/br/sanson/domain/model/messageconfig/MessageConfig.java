@@ -1,4 +1,4 @@
-package com.br.sanson.domain.config;
+package com.br.sanson.domain.model.messageconfig;
 
 import org.springframework.data.annotation.Id;
 

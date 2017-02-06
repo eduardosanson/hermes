@@ -1,6 +1,6 @@
-package com.br.sanson.repository;
+package com.br.sanson.domain.model.sms;
 
-import com.br.sanson.domain.Sms;
+import com.br.sanson.domain.model.sms.Sms;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**

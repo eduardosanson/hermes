@@ -1,4 +1,4 @@
-package com.br.sanson.interfaces;
+package com.br.sanson.infrastructure.interfaces;
 
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.messaging.SubscribableChannel;

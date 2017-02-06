@@ -1,6 +1,6 @@
 package com.br.sanson.application.billingNotify.service;
 
-import com.br.sanson.interfaces.NotifyService;
+import com.br.sanson.infrastructure.interfaces.NotifyService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;

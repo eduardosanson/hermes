@@ -1,5 +1,7 @@
-package com.br.sanson.domain;
+package com.br.sanson.domain.model.sms;
 
+import com.br.sanson.domain.shared.Mensagem;
+import com.br.sanson.domain.shared.Msisdn;
 import org.springframework.util.ObjectUtils;
 
 import java.util.Date;
@@ -17,7 +19,7 @@ public class Sms {
 
     public Sms(Mensagem mensagem, Msisdn destination) {
         if(ObjectUtils.isEmpty(mensagem)||ObjectUtils.isEmpty(destination)){
-            throw new IllegalArgumentException("Mensagem ou msisdn não podem ser nulos");
+            throw new IllegalArgumentException("Mensagem e msisdn não podem ser nulos");
         }
         this.mensagem = mensagem;
         this.destination = destination;
