@@ -25,7 +25,7 @@ Ex: "path": "/sms/5521985003853",......
 
 ## Running the tests
 
-execute o comando mvn install no diretório raiz
+Execute o comando mvn install no diretório raiz
 
 ## Deployment
 
@@ -36,10 +36,6 @@ na pasta /target java -jar hermes<version>.war
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
