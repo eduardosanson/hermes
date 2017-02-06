@@ -18,8 +18,7 @@ public class MessageConfig {
 
     private String tenant;
 
-    public MessageConfig(String id,String message, String eventType, String tenant) {
-        this.id =id;
+    public MessageConfig(String message, String eventType, String tenant) {
         this.message = message;
         this.eventType = eventType;
         this.tenant = tenant;

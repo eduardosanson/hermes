@@ -1,0 +1,48 @@
+{
+  "port": 8081,
+  "fileLog": false,
+  "consoleLog": true,
+  "host": "localhost",
+  "context": "/mockServer",
+  "defaultContentTypeResponse": "text/html;charset=UTF-8",
+  "routeList": [
+    {
+      "request": {
+        "name": "Hello World",
+        "path": "/",
+        "method": "GET"
+      },
+      "response": {
+        "statusCode": 200,
+        "body": "{'mockBody':{'title':'Hello World'}}",
+        "contentType": "application/json;charset=UTF-8"
+      }
+    },
+    {
+      "request": {
+        "name": "sms",
+        "path": "/sms/5521985003853",
+        "method": "POST",
+        "requiredContentType": "application/json",
+        "isBodyRequired": false
+      },
+      "response": {
+        "statusCode": 200,
+        "contentType": "application/json"
+      }
+    },
+    {
+      "request": {
+        "name": "[CLONED] sms",
+        "path": "/sms/5521988170030",
+        "method": "POST",
+        "requiredContentType": "application/json",
+        "isBodyRequired": false
+      },
+      "response": {
+        "statusCode": 400,
+        "contentType": "application/json"
+      }
+    }
+  ]
+}

@@ -5,10 +5,9 @@ import com.br.sanson.api.billingnotify.queue.to.BillingNotifyTO;
 import com.br.sanson.application.billingNotify.service.BillingNotifyService;
 import com.br.sanson.infrastructure.interfaces.NotifyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by pc on 04/02/2017.
@@ -24,8 +23,8 @@ public class BillingNotifyController {
         this.service = service;
     }
 
-    @GetMapping
-    public ResponseEntity<Void> billingNofication(BillingNotifyTO billingNotifyTO){
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> billingNofication(@RequestBody BillingNotifyTO billingNotifyTO){
 
         service.notify(BillingNotifyAssembler.toNotification(billingNotifyTO));
 
