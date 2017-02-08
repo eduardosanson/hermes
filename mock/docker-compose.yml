@@ -1,0 +1,3 @@
+mock:
+  image: sanson/mocksms
+  net: host

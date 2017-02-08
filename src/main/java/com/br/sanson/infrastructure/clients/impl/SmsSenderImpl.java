@@ -20,6 +20,6 @@ public class SmsSenderImpl implements SmsSender {
 
     @Override
     public void sendSms(String mensagem, String msisdn) {
-        throw new FalhaDeComunicacaoException(SmsSender.class,feignException.status(),msisdn,mensagem);
+        throw new FalhaDeComunicacaoException(SmsSender.class,feignException.status(),feignException,msisdn,mensagem);
     }
 }

@@ -1,4 +1,4 @@
-rabbit1:
+Rabbit1:
   image: "rabbitmq:3-management"
   hostname: "rabbit1"
   ports:
@@ -12,4 +12,10 @@ MongoDB:
   ports:
     - "27017:27017"
   restart: always
+  net: host
+Hermes:
+  image: sanson/hermes
+  net: host
+MockSms:
+  image: sanson/mocksms
   net: host
