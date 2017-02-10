@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.context.ApplicationEventPublisher;
 
 /**
  * Created by pc on 04/02/2017.
@@ -21,12 +22,16 @@ public class BillingNotifyQueueTest {
     @InjectMocks
     private BillingNotifyQueue billingNotifyQueue;
 
+    @Mock
+    private ApplicationEventPublisher eventPublisher;
+
     @Test
     public void notificacaoDePagamentoComSucesso(){
 
         billingNotifyQueue.billingNotification(creaBillingNotifyTO());
 
-        Mockito.verify(service,Mockito.times(1)).notify(Mockito.any());
+//        Mockito.verify(service,Mockito.times(1)).notify(Mockito.any());
+        Mockito.verify(eventPublisher).publishEvent(Mockito.any());
     }
 
     private BillingNotifyTO creaBillingNotifyTO(){

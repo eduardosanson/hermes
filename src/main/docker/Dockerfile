@@ -1,3 +1,4 @@
 FROM java:8
-ADD *.war hermes.war
-ENTRYPOINT [ "java", "-jar","hermes.war" ]
+ADD *.war app/Hermes.war
+WORKDIR app
+ENTRYPOINT [ "java", "-jar","Hermes.war" ]
