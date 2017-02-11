@@ -1,7 +1,6 @@
 package com.br.sanson.api.billingnotify.queue;
 
 import com.br.sanson.api.billingnotify.queue.to.BillingNotifyTO;
-import com.br.sanson.infrastructure.interfaces.NotifyService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -15,9 +14,6 @@ import org.springframework.context.ApplicationEventPublisher;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class BillingNotifyQueueTest {
-
-    @Mock
-    private NotifyService service;
 
     @InjectMocks
     private BillingNotifyQueue billingNotifyQueue;

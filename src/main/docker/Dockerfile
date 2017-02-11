@@ -1,4 +1,4 @@
 FROM java:8
-ADD *.war app/Hermes.war
-WORKDIR app
+ADD *.war Hermes.war
+RUN sh -c 'touch /Hermes.jar'
 ENTRYPOINT [ "java", "-jar","Hermes.war" ]
