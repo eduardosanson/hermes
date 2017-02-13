@@ -1,12 +1,19 @@
 package com.br.sanson.domain.model.messageconfig;
 
+import com.br.sanson.domain.shared.enums.EventType;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Created by pc on 04/02/2017.
  */
+@Document
 public class MessageConfig {
 
     @Id
@@ -14,11 +21,12 @@ public class MessageConfig {
 
     private String message;
 
-    private String eventType;
+    private EventType eventType;
 
     private String tenant;
 
-    public MessageConfig(String message, String eventType, String tenant) {
+    @JsonCreator
+    public MessageConfig(@JsonProperty(value = "message") String message, @JsonProperty(value = "eventType") EventType eventType, @JsonProperty(value = "tenant") String tenant) {
         this.message = message;
         this.eventType = eventType;
         this.tenant = tenant;
@@ -32,6 +40,9 @@ public class MessageConfig {
                 ", eventType='" + eventType + '\'' +
                 ", tenant='" + tenant + '\'' +
                 '}';
+    }
+
+    public MessageConfig() {
     }
 
     @Override
@@ -54,7 +65,19 @@ public class MessageConfig {
         return Objects.hash(id, message, eventType, tenant);
     }
 
+    @JsonProperty
     public String message(){
         return message;
     }
+
+    @JsonProperty
+    public String tenant(){
+        return tenant;
+    }
+
+    @JsonProperty
+    public EventType eventType(){
+        return eventType;
+    }
+
 }

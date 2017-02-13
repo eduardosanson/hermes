@@ -1,5 +1,8 @@
 package com.br.sanson.domain.shared;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Optional;
 
 /**
@@ -9,6 +12,7 @@ public class Msisdn {
 
     private String msisdn;
 
+    @JsonCreator
     public Msisdn(String msisdn) {
         this.msisdn = Optional
                 .ofNullable(msisdn)
@@ -17,6 +21,9 @@ public class Msisdn {
 
     public String asString(){
         return msisdn;
+    }
+
+    public Msisdn() {
     }
 
     @Override
@@ -44,5 +51,10 @@ public class Msisdn {
         return "Msisdn{" +
                 "value='" + msisdn + '\'' +
                 '}';
+    }
+
+    @JsonProperty
+    public String msisdn() {
+        return msisdn;
     }
 }

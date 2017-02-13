@@ -6,6 +6,7 @@ import com.br.sanson.domain.model.messageconfig.MessageConfigRepository;
 import com.br.sanson.domain.model.sms.SmsRepository;
 import com.br.sanson.domain.shared.Msisdn;
 import com.br.sanson.domain.shared.Tenant;
+import com.br.sanson.domain.shared.enums.EventType;
 import com.br.sanson.exception.ResourceNotFoundException;
 import com.br.sanson.infrastructure.clients.SmsSender;
 import org.junit.Test;
@@ -42,11 +43,11 @@ public class BillingNotifyListenerTest {
     public void eventoDePagamentoEnviandoSmsComSucesso(){
         Optional<MessageConfig> messageConfig = Optional.of(creatMessageConfig());
 
-        when(messageConfigRepository.findByEventTypeAndTenant(anyString(),anyString())).thenReturn(messageConfig);
+        when(messageConfigRepository.findByEventTypeAndTenant(any(),anyString())).thenReturn(messageConfig);
 
         billingNotifyListener.onApplicationEvent(createBillingNotification());
 
-        verify(messageConfigRepository,times(1)).findByEventTypeAndTenant(anyString(),anyString());
+        verify(messageConfigRepository,times(1)).findByEventTypeAndTenant(any(),anyString());
         verify(smsSender,times(1)).sendSms(anyString(),anyString());
 
 
@@ -54,7 +55,7 @@ public class BillingNotifyListenerTest {
 
     @Test(expected = ResourceNotFoundException.class)
     public void eventoDePagamentoSemConfiguracaoParaOTenant(){
-        when(messageConfigRepository.findByEventTypeAndTenant(anyString(),anyString())).thenReturn(Optional.empty());
+        when(messageConfigRepository.findByEventTypeAndTenant(any(),anyString())).thenReturn(Optional.empty());
 
         billingNotifyListener.onApplicationEvent(createBillingNotification());
 
@@ -70,7 +71,7 @@ public class BillingNotifyListenerTest {
 
     private MessageConfig creatMessageConfig(){
 
-        return new MessageConfig("message","event","");
+        return new MessageConfig("message", EventType.BILLING,"");
     }
 
 }

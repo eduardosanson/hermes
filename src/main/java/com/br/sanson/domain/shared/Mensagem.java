@@ -1,5 +1,8 @@
 package com.br.sanson.domain.shared;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.text.MessageFormat;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,8 +24,12 @@ public class Mensagem {
 
     }
 
-    public String asString(){
-        return mensagem;
+    @JsonCreator
+    public Mensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public Mensagem() {
     }
 
     @Override
@@ -47,6 +54,11 @@ public class Mensagem {
         return "Mensagem{" +
                 "value='" + mensagem + '\'' +
                 '}';
+    }
+
+    @JsonProperty
+    public String mensagem(){
+        return mensagem;
     }
 
 }

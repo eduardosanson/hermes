@@ -24,12 +24,6 @@ spring:
 billingNotifyInput:
   queue:
     dlq:  ${spring.cloud.stream.bindings.billingNotifyInput.destination}.${spring.cloud.stream.bindings.billingNotifyInput.group}.dlq
-
-info.project:
-        name: ${project.name}
-        description: ${project.description}
-        version: ${project.version}
-
 sms:
   url: http://localhost:8081/mockServer
   send: /sms
