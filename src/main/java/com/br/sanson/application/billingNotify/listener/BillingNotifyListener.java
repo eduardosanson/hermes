@@ -46,12 +46,12 @@ public class BillingNotifyListener implements ApplicationListener<BillingNotific
     public void onApplicationEvent(BillingNotification billingNotification) {
         logger.info("notificacao Recebida " + billingNotification);
 
-        MessageConfig config = repository.findByEventTypeAndTenant(EventType.BILLING.getValue(),billingNotification.tenant().asString())
-                .orElseThrow(()-> new ResourceNotFoundException(MessageConfig.class,EventType.BILLING.getValue(),billingNotification.tenant()));
+        MessageConfig config = repository.findByEventTypeAndTenant(EventType.BILLING,billingNotification.tenant().asString())
+                .orElseThrow(()-> new ResourceNotFoundException(MessageConfig.class,EventType.BILLING,billingNotification.tenant()));
         Mensagem message= new Mensagem(config.message(),billingNotification.params());
 
         Sms sms = new Sms(message,billingNotification.msisdn());
-        smsSender.sendSms(sms.mensagem().asString(),sms.destination().asString());
+        smsSender.sendSms(sms.mensagem().mensagem(),sms.destination().asString());
         smsRepository.save(sms);
 
     }

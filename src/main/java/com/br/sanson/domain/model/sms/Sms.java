@@ -2,6 +2,10 @@ package com.br.sanson.domain.model.sms;
 
 import com.br.sanson.domain.shared.Mensagem;
 import com.br.sanson.domain.shared.Msisdn;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.util.ObjectUtils;
 
 import java.util.Date;
@@ -9,7 +13,11 @@ import java.util.Date;
 /**
  * Created by pc on 04/02/2017.
  */
+@Document
 public class Sms {
+
+    @Id
+    private String id;
 
     private Mensagem mensagem;
 
@@ -17,6 +25,7 @@ public class Sms {
 
     private Date registrado;
 
+    @JsonCreator
     public Sms(Mensagem mensagem, Msisdn destination) {
         if(ObjectUtils.isEmpty(mensagem)||ObjectUtils.isEmpty(destination)){
             throw new IllegalArgumentException("Mensagem e msisdn não podem ser nulos");
@@ -26,10 +35,12 @@ public class Sms {
         this.registrado = new Date();
     }
 
+    @JsonProperty
     public Mensagem mensagem(){
         return mensagem;
     }
 
+    @JsonProperty
     public Msisdn destination(){
         return destination;
     }
